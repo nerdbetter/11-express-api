@@ -30,11 +30,12 @@ Your `package.json` must include `scripts` for:
 * create an HTTP server using `express`
 * create a object constructor that creates a _simple resource_ with at least 3 properties
   * it can **not** have the same properties as the in-class sample code (other than the `id`)
-  * a unique `id` property should be included *(node-uuid)*
+  * a unique `id` property should be included *(uuid)*
   * include two additional properties of your choice
 * use the JSON parser included with the `body-parser` module as a middleware component to parse the request body on `POST` and `PUT` routes
+* use the npm `http-errors` module to handle errors in your application
 * use the npm `debug` module to log the methods in your application
-* create an `npm` script to automate the `debug` process and start the server
+* use the npm `cross-env` module to enable `debug` when starting the server
 * persist your API data using the storage module and file system persistence
 
 #### Server Endpoints
@@ -48,6 +49,7 @@ Your `package.json` must include `scripts` for:
  * this should return a 204 status code with no content in the body
 
 #### Tests
+* use the npm `supertest` module
 * write a test to ensure that your api returns a status code of 404 for routes that have not been registered
 * write tests to ensure the `/api/simple-resource-name` endpoint responds as described for each condition below:
  * `GET`: test 404, it should respond with 'not found' for valid requests made with an id that was not found
