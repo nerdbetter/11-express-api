@@ -1,4 +1,4 @@
-![cf](https://i.imgur.com/7v5ASc8.png) 11: Single Resource Express API
+![DV](https://www.deltavcodeschool.com/wp-content/uploads/DeltaV.png) 11: Single Resource Express API
 ======
 
 ## Submission Instructions
@@ -21,6 +21,10 @@
 * `.gitignore`
 * `README.md`
   * your `README.md` should include detailed instructions on how to use your API
+
+Your `package.json` must include `scripts` for:
+* `lint`
+* `test`
 
 #### Feature Tasks
 * create an HTTP server using `express`
