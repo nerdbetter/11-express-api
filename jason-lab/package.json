@@ -1,0 +1,30 @@
+{
+  "name": "jason-lab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "author": "Jason Logan",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "chai": "^4.1.1",
+    "cross-env": "^5.0.5",
+    "eslint": "^4.5.0",
+    "express": "^4.15.4",
+    "http-errors": "^1.6.2",
+    "mocha": "^3.5.0",
+    "uuid": "^3.1.0"
+  },
+  "devDependencies": {
+    "debug": "^3.0.1",
+    "supertest": "^3.0.0"
+  }
+}
