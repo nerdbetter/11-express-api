@@ -8,8 +8,9 @@
     "test": "test"
   },
   "scripts": {
+    "test:watch": "mocha -w",
     "test": "mocha",
-    "start": "node server.js"
+    "start": "cross-env DEBUG=server nodemon server.js"
   },
   "author": "Jason Logan",
   "license": "ISC",
@@ -21,10 +22,12 @@
     "express": "^4.15.4",
     "http-errors": "^1.6.2",
     "mocha": "^3.5.0",
-    "uuid": "^3.1.0"
+    "node": "^8.3.0",
+    "uuid": "^3.1.0",
+    "debug": "^3.0.1"
   },
   "devDependencies": {
-    "debug": "^3.0.1",
+    "nodemon": "^1.11.0",
     "supertest": "^3.0.0"
   }
 }
