@@ -2,18 +2,23 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const debug = require('debug')('server');
+const debug = require('debug')('app:server');
 
 const storage = require('./lib/storage.js');
-const User = require('./module/user.js');
+const User = require('./model/user.js');
 
 const bodyParser = require('body-parser');
 const createError = require('http-errors');
 
+
 app.use(express.static('./jason-lab'));
 app.use(bodyParser.json());
+//app.use(require('./lib/cors-middleware.js'));
 app.use(require('./lib/error-middleware.js'));
 
+app.use(require('./routes/user-routes.js'));
+
+/*
 debug('Testing ROUTES');
 app.get('/', (req, res) =>{
   res.status(200);
@@ -70,6 +75,8 @@ app.route('/api/chat')
     res.send(createError( 400, 'bad request'));
     res.end();
   });
+
+  */
 
 const server = function(){
   debug('booting', 'Chat Program');

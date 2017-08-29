@@ -9,22 +9,23 @@
   },
   "scripts": {
     "test:watch": "mocha -w",
-    "test": "mocha",
-    "start": "cross-env DEBUG=server nodemon server.js"
+    "test": "cross-env DEBUG=app:* mocha",
+    "start": "cross-env DEBUG=app:* nodemon server.js"
   },
   "author": "Jason Logan",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",
     "chai": "^4.1.1",
+    "cors": "^2.8.4",
     "cross-env": "^5.0.5",
+    "debug": "^3.0.1",
     "eslint": "^4.5.0",
     "express": "^4.15.4",
     "http-errors": "^1.6.2",
     "mocha": "^3.5.0",
     "node": "^8.3.0",
-    "uuid": "^3.1.0",
-    "debug": "^3.0.1"
+    "uuid": "^3.1.0"
   },
   "devDependencies": {
     "nodemon": "^1.11.0",

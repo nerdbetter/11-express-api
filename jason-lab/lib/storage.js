@@ -6,6 +6,8 @@ const path = require('path');
 const writeFileAsync = promisify(fs.writeFile);
 const readFileAsync = promisify(fs.readFile);
 
+const createError = require('http-errors');
+
 module.exports = exports = {};
 
 function ensureDirectoryExistence(filePath) {
@@ -69,5 +71,6 @@ exports.fetchItem = function(schemaName, id) {
   return readFileAsync(filepath)
     .then(data => {
       return JSON.parse(data.toString());
-    });
+    })
+    .catch(err=> Promise.reject(createError(404, err.message)));
 };

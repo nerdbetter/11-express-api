@@ -3,7 +3,7 @@
 const createError = require('http-errors');
 const debug = require('debug')('app:error-middleware');
 
-module.exports = function(err, re, res, next){
+module.exports = function(err, req, res, next){
   console.log(err.message);
   debug('status', err.status);
 
@@ -12,7 +12,7 @@ module.exports = function(err, re, res, next){
   }
   else{
     err = new createError.InternalServerError(err.message);
-    res.status(err.status).send(err.name);
-    next();
   }
+  res.status(err.status).send(err.name);
+  next();
 };

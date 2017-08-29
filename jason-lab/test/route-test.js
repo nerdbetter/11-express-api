@@ -9,6 +9,13 @@ describe('ROUTES', function (){
       .expect('content-type', 'text/plain; charset=utf-8')
       .end(done);
   });
+  it('should include cors header', function (done){
+    request
+      .get('/404')
+      .expect('Acess-Control-Allow-Headers', '*')
+      .expect('Acess-Control-Allow-Headers', '*')
+      .end(done);
+  });
   it('should handle 404', function (done){
     request
       .get('/404')
