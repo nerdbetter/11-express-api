@@ -1,6 +1,6 @@
 'use strict';
 
-const debug = require('debug')('app:note');
+const debug = require('debug')('app:User');
 const storage = require('../lib/storage.js');
 
 const createError = require('http-errors');
@@ -39,8 +39,10 @@ User.updateUser = function(id, body){
 };
 User.getUser = function(id){
   debug(`getUser(${id})`);
-  return storage.fetchItem('user', id)
-    .catch( () => {
-      return Promise.reject(createError(404, 'ID not found'));
-    });
+  return storage.fetchItem('user', id);
+};
+
+User.deleteUser = function(id){
+  debug(`deleteUser(${id})`);
+  return storage.deleteItem('user', id);
 };

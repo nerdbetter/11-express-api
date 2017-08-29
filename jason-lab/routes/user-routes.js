@@ -28,3 +28,10 @@ router.get('/api/chat', function(req, res, next){
     .then(user => res.json(user))
     .catch(err => next(err));
 });
+router.delete('/api/chat', function(req, res, next){
+  debug('DELETE: /api/chat');
+
+  User.deleteUser(req.query.id)
+    .then(user => res.json(user))
+    .catch(err => next(err));
+});

@@ -15,10 +15,13 @@ describe.only('/api/chat routes', function(){
   });
   afterEach(function(done){
     if (this.putUser){
-      // stuff
-      done();
+      User.deleteUser(this.putUser.id)
+        .then(user => {
+          this.putUser = user;
+          done();
+        })
+        .catch(done);
     }
-    //.catch(done);
   });
   describe('POST', function(){
     it('should return 200 with JSON of User', function(done){
@@ -58,5 +61,15 @@ describe.only('/api/chat routes', function(){
         })
         .end(done);
     });
+  });
+});
+describe('DELETE /api/chat', function() {
+  it('should delete a thing', function (done){
+    request.delete(`/api/chat?id=${this.putUser.id}`)
+      .expect(res =>{
+        expect(res.status).to.equal(200);
+        expect(res.user).to.equal(undefined);
+      })
+      .end(done);
   });
 });
