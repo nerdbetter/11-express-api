@@ -12,7 +12,7 @@ const createError = require('http-errors');
 
 app.use(express.static('./jason-lab'));
 app.use(bodyParser.json());
-//app.use(createError);
+app.use(require('./lib/error-middleware.js'));
 
 debug('Testing ROUTES');
 app.get('/', (req, res) =>{
