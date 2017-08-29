@@ -52,6 +52,23 @@ app.route('/api/chat')
       res.status('400');
       res.end();
     }
+  })
+  .delete(function(req, res) {
+    if(req.query.id) {
+      storage.deleteItem('chatUser', req.query.id)
+        .then(user => {
+          res.status(204).json(user);
+          res.json((user) + 'Deleted');
+          res.end();
+        })
+        .catch(err => {
+          debug(err);
+          res.send(createError( 404, 'item not found'));
+        });
+      return;
+    }
+    res.send(createError( 400, 'bad request'));
+    res.end();
   });
 
 const server = function(){
