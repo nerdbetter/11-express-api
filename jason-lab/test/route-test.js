@@ -9,6 +9,12 @@ describe('ROUTES', function (){
       .expect('content-type', 'text/plain; charset=utf-8')
       .end(done);
   });
+  it('should handle 404', function (done){
+    request
+      .get('/404')
+      .expect(404)
+      .end(done);
+  });
 });
 
 describe('All /api/chat', function() {
@@ -48,6 +54,7 @@ describe('All /api/chat', function() {
       request.delete(`/api/chat?id=${chatUser.id}`)
         .expect(res =>{
           expect(res.status).to.equal(204);
+          expect(res.chatUser).to.equal(undefined);
         })
         .end(done);
     });
