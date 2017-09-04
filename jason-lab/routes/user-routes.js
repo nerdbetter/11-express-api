@@ -32,6 +32,6 @@ router.delete('/api/chat', function(req, res, next){
   debug('DELETE: /api/chat');
 
   User.deleteUser(req.query.id)
-    .then(user => res.json(user))
+    .then(() => res.sendStatus(204))
     .catch(err => next(err));
 });

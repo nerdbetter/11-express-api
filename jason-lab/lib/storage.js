@@ -55,7 +55,7 @@ exports.deleteItem = function(schemaName, id){
   if (!fs.existsSync(path.dirname(filepath)))
     return Promise.reject(new Error('schema not found'));
 
-  return Promise.resolve(fs.unlinkSync(filepath));
+  return Promise.resolve(fs.unlink(filepath));
 
 };
 

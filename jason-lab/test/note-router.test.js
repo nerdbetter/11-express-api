@@ -3,7 +3,7 @@ const { expect } = require('chai');
 const User = require('../model/user.js');
 const request = require('supertest')(app);
 
-describe.only('/api/chat routes', function(){
+describe('/api/chat routes', function(){
   const exampleUser = new User('NerdBetter', 'Jason Logan');
   beforeEach(function(done){
     User.createUser(exampleUser)
@@ -61,15 +61,5 @@ describe.only('/api/chat routes', function(){
         })
         .end(done);
     });
-  });
-});
-describe('DELETE /api/chat', function() {
-  it('should delete a thing', function (done){
-    request.delete(`/api/chat?id=${this.putUser.id}`)
-      .expect(res =>{
-        expect(res.status).to.equal(200);
-        expect(res.user).to.equal(undefined);
-      })
-      .end(done);
   });
 });

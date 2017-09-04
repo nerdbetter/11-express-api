@@ -61,7 +61,7 @@ describe('All /api/chat', function() {
       request.delete(`/api/chat?id=${chatUser.id}`)
         .expect(res =>{
           expect(res.status).to.equal(204);
-          expect(res.chatUser).to.equal(undefined);
+          expect(res.body).to.equal(undefined);
         })
         .end(done);
     });
